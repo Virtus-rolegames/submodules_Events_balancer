@@ -10,6 +10,7 @@ class Event:
         self.soc = soc
         self.arm = arm
         self.rel = rel
+        self.bal = [eco, soc, arm, rel]
 
     @staticmethod
     def gen_possible():
@@ -36,7 +37,7 @@ class Event:
 
 
 def gen_use_some(possible: List[Event], current_round: int):
-    used = []
+    used: List[Event] = []
     for i in range(current_round):
         buf = random.choice(possible)
         possible.remove(buf)

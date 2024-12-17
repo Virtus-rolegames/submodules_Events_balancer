@@ -1,5 +1,5 @@
 import math
-from typing import List
+from typing import List, Dict
 
 from example_data import Event, gen_use_some
 
@@ -30,14 +30,23 @@ def analyzer(curr_bal: List[int]):
     return result
 
 
+def finder(param: int, value: int, possibles: List[Event]):
+    variants: Dict = {"Value": 0, "IDs": [0]}
+    for possible in possibles:
+        if abs(variants.get("Value")-value) > 0:
+            if possible.bal[param] :
+                ...
+    result = variants
+    return result
+
+
 def balancer(current: int, max: int, possible: List[Event], used: List[Event]):
 
     result = "error or smth"
     if current >= math.ceil(max/2):
         if analyzer(calc_curr_bal(used)):
             variants: List[int] = []
-            for event in possible:
-                ...
+            result = finder()
         else:
             result = "it's ok already"
     else:

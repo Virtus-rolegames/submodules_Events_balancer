@@ -22,14 +22,13 @@ def calc_curr_bal(used: List[Event]):
 
 
 def analyzer(curr_bal: List[int]):
+    # print(f"BAL: {curr_bal}")
     result = False
-    sum = 0
     for i in range(4):
-        sum += curr_bal[i]
         if result:
-            if curr_bal[i] > result[1]:
+            if abs(curr_bal[i]) > abs(result[1]):
                 result = [i, curr_bal[i]]
-        elif curr_bal[i] > 2:
+        elif abs(curr_bal[i]) > 2:
             result = [i, curr_bal[i]]
     return result
 
@@ -63,4 +62,4 @@ def balancer(current: int, max: int, possible: List[Event], used: List[Event]):
     return result
 
 
-print(balancer(current_round, max_round, events[0], events[1]))
+print(f"IDs: {balancer(current_round, max_round, events[0], events[1])}")

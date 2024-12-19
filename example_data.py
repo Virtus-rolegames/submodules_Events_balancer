@@ -30,16 +30,15 @@ class Event:
                 possible_events.append(Event(eco=a, soc=b, arm=b, rel=d, id=n))
                 n += 1
         print("gen success")
-        for i in possible_events: print(f"{i.id} | {i.bal}")
         return possible_events
 
 
 def gen_use_some(possible: List[Event], current_round: int):
     used: List[Event] = []
-    print(possible)
     for i in range(current_round):
         buf = random.choice(possible)
         possible.remove(buf)
         used.append(buf)
-    print(f"use gen success\n{used}")
+    print("use gen success")
+    # for i in used: print(f"{i.id} | {i.bal}")
     return [possible, used]
